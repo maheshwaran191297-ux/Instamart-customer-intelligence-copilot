@@ -1,0 +1,21 @@
+{
+    "run_id": "e2fc458c-285a-4387-938d-95b6239f5534",
+    "scenario_id": "S1_TIMEOUT_TEST",
+    "messages": [
+        {
+            "role": "system",
+            "content": "\n                AGENT\n\n                You are an Instamart refund processing agent.\n\n                Use the available tools to process refund requests.\n                Always check the order and policy before deciding.\n                Never issue refunds for cancelled orders.\n                Follow the refund rules strictly.\n\n                Provide a final answer with a clear status:\n                REFUND, ESCALATE, DENIED or NOT_FOUND.\n                "
+        },
+        {
+            "role": "user",
+            "content": "My order ORD-100048 reached me very late. I would like a refund."
+        }
+    ],
+    "steps": [],
+    "tools_executed": [],
+    "llm_calls": 0,
+    "tokens_used": 0,
+    "status": "FALLBACK_TIMEOUT",
+    "final_answer": "FALLBACK_TIMEOUT: Request sent to human support.",
+    "completed": true
+}

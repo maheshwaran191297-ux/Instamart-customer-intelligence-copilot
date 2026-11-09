@@ -1,0 +1,56 @@
+{
+    "run_id": "33ec9d66-e852-4bde-ac39-f507dd59c8d7",
+    "scenario_id": "S1_TOKEN_LIMIT_TEST",
+    "messages": [
+        {
+            "role": "system",
+            "content": "\n                AGENT\n\n                You are an Instamart refund processing agent.\n\n                Use the available tools to process refund requests.\n                Always check the order and policy before deciding.\n                Never issue refunds for cancelled orders.\n                Follow the refund rules strictly.\n\n                Provide a final answer with a clear status:\n                REFUND, ESCALATE, DENIED or NOT_FOUND.\n                "
+        },
+        {
+            "role": "user",
+            "content": "My order ORD-100048 reached me very late. I would like a refund."
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "tool_calls": [
+                {
+                    "id": "call_1",
+                    "name": "get_order",
+                    "arguments": {
+                        "order_id": "ORD-100048"
+                    }
+                }
+            ]
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_1",
+            "name": "get_order",
+            "content": "{\"order_id\": \"ORD-100048\", \"status\": \"completed\", \"order_amount\": 128.25, \"delivery_minutes\": 65}"
+        }
+    ],
+    "steps": [
+        {
+            "step": 1,
+            "tool": "get_order",
+            "arguments": {
+                "order_id": "ORD-100048"
+            },
+            "observation": {
+                "order_id": "ORD-100048",
+                "status": "completed",
+                "order_amount": 128.25,
+                "delivery_minutes": 65
+            }
+        }
+    ],
+    "tools_executed": [
+        "get_order"
+    ],
+    "llm_calls": 2,
+    "tokens_used": 202,
+    "status": "FALLBACK_TOKEN_LIMIT",
+    "final_answer": "FALLBACK_TOKEN_LIMIT: Request sent to human support.",
+    "completed": true
+}
